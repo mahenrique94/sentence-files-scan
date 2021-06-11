@@ -6,9 +6,9 @@ use std::fs::File;
 use std::io::BufReader;
 use std::io::prelude::*;
 
-const DIRECTORY_TO_SCAN: &'static str = "/home/matheus/desktop/LOGS/203";
-const FILE_EXTENSION_TO_SCAN: &'static str = "json";
-const SENTENCE_TO_MATCH: &'static str = "Reprovar";
+const DIRECTORY_TO_SCAN: &'static str = "DIRECTORY_TO_SCAN";
+const FILE_EXTENSION_TO_SCAN: &'static str = "FILE_EXTENSION_TO_SCAN";
+const SENTENCE_TO_MATCH: &'static str = "SENTENCE_TO_MATCH";
 
 fn main() {
   assert!(!DIRECTORY_TO_SCAN.ends_with("/"), "O diretório para scanear não pode terminar com /");
