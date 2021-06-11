@@ -2,20 +2,16 @@ extern crate glob;
 
 use glob::glob;
 
-use std::fs;
 use std::fs::File;
 use std::io::BufReader;
 use std::io::prelude::*;
 
-const DIRECTORY_TO_SCAN: &'static str = "PATH";
-const FILE_EXTENSION_TO_SCAN: &'static str = "EXTENSION";
-const SENTENCE_TO_MATCH: &'static str = "SENTENCE";
+const DIRECTORY_TO_SCAN: &'static str = "/home/matheus/desktop/LOGS/203";
+const FILE_EXTENSION_TO_SCAN: &'static str = "json";
+const SENTENCE_TO_MATCH: &'static str = "Reprovar";
 
-fn main() -> std::io::Result<()> {
-  if DIRECTORY_TO_SCAN.ends_with("/") {
-    compile_error!("O diretório para scanear não pode terminar com /");
-  }
-
+fn main() {
+  assert!(!DIRECTORY_TO_SCAN.ends_with("/"), "O diretório para scanear não pode terminar com /");
 
   let scan_path = format!("{}/*.{}", DIRECTORY_TO_SCAN, FILE_EXTENSION_TO_SCAN);
 
@@ -39,6 +35,4 @@ fn main() -> std::io::Result<()> {
       Err(e1) => println!("{:#?}", e1),
     }
   }
-
-  Ok(())
 }
